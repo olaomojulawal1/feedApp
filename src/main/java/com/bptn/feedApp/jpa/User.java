@@ -1,7 +1,5 @@
 package com.bptn.feedApp.jpa;
 
-
-
 import java.io.Serializable;
 import java.sql.Timestamp;
 
@@ -16,39 +14,36 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="user")
-public class User implements Serializable {   
+@Table(name = "\"user\"", schema = "public")
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="userId")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "\"userId\"")
 	private Integer userId;
-	
-	@Column(name="firstName")
+
+	@Column(name = "\"firstName\"")
 	private String firstName;
-	
-	@Column(name="lastName")
+
+	@Column(name = "\"lastName\"")
 	private String lastName;
-	
-	@Column(name="username")
+
 	private String username;
-	
-	@Column(name="password")
+
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
-	
-	@Column(name="phone")
+
 	private String phone;
-	
-	@Column(name="emailId")
+
+	@Column(name = "\"emailId\"")
 	private String emailId;
-	
-	@Column(name="emailVerified")
+
+	@Column(name = "\"emailVerified\"")
 	private Boolean emailVerified;
-	
-	@Column(name="createdOn")
+
+	@Column(name = "\"createdOn\"")
 	private Timestamp createdOn;
-	
+
 	public User() {
 	}
 
@@ -126,10 +121,14 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", username="
+		return "user [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", username="
 				+ username + ", password=" + password + ", phone=" + phone + ", emailId=" + emailId + ", emailVerified="
-				+ emailVerified + ", createdOn=" + createdOn + "]";
+				+ emailVerified + ", createdOn=" + createdOn + ", getUserId()=" + getUserId() + ", getFirstName()="
+				+ getFirstName() + ", getLastName()=" + getLastName() + ", getUsername()=" + getUsername()
+				+ ", getPassword()=" + getPassword() + ", getPhone()=" + getPhone() + ", getEmailId()=" + getEmailId()
+				+ ", getEmailVerified()=" + getEmailVerified() + ", getCreatedOn()=" + getCreatedOn() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
-	
+
 }
+
