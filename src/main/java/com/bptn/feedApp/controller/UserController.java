@@ -25,11 +25,11 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	// @GetMapping("/test")
-	// public String testController() {
-	// logger.debug("The testController() method was invoked!");
-	// return "The FeedApp application is up and running";
-	// }
+	 @GetMapping("/test")
+	public String testController() {
+	logger.debug("The testController() method was invoked!");
+	return "The FeedApp application is up and running";
+	 }
 	@GetMapping("/")
 	public List<User> listUsers() {
 		logger.debug("The listUsers() method was invoked!");
