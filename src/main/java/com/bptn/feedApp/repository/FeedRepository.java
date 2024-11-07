@@ -8,8 +8,11 @@ import com.bptn.feedApp.jpa.Feed;
 import com.bptn.feedApp.jpa.User;
 
 public interface FeedRepository extends JpaRepository<Feed, Integer>, PagingAndSortingRepository<Feed, Integer> {
+	
+	//Users profile
 	Page<Feed> findByUser(User user, Pageable pageable);
 
+	// Other profiles
 	Page<Feed> findByUserNot(User user, Pageable pageable);
 
 }
