@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.bptn.feedApp.jpa.User;
 import com.bptn.feedApp.repository.UserRepository;
 //import com.bptn.feedApp.jdbc.UserBean;
+import java.sql.Timestamp;
+import java.time.Instant;
 
 @Service
 public class UserService {
@@ -33,7 +35,19 @@ public class UserService {
 		this.userRepository.save(user);
 	}
 
+	public User signup(User user){
+		user.setUsername(user.getUsername().toLowerCase());
+		user.setEmailId(user.getEmailId().toLowerCase());
+		
+		user.setEmailVerified(false);
+		user.setCreatedOn(Timestamp.from(Instant.now()));
+		this.userRepository.save(user);
+		return user;
+	}
+	
 }
+
+
 
 
 
