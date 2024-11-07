@@ -23,7 +23,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
-
 @Entity
 @Table(name = "\"user\"", schema = "public")
 public class User implements Serializable {
@@ -54,24 +53,18 @@ public class User implements Serializable {
 
 	@Column(name = "\"createdOn\"")
 	private Timestamp createdOn;
-	
-	
-	
+
 	@JsonInclude(Include.NON_NULL)
-	@OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Profile profile;
 
 	@JsonIgnore
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy = "user")
 	private List<Feed> feeds;
-	
-	
+
 	@JsonIgnore
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy = "user")
 	private List<FeedMetaData> feedMetaData;
-	
-	
-	
 
 	public User() {
 	}
@@ -147,8 +140,6 @@ public class User implements Serializable {
 	public void setCreatedOn(Timestamp createdOn) {
 		this.createdOn = createdOn;
 	}
-	
-	
 
 	public Profile getProfile() {
 		return profile;
@@ -186,4 +177,3 @@ public class User implements Serializable {
 	}
 
 }
-

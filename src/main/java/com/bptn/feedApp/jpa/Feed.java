@@ -18,35 +18,34 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
-
 @Entity
-@Table(name="\"Feed\"")
+@Table(name = "\"feed\"")
 public class Feed implements Serializable {
-	
-	private static final long serialVersionUID = 1L; 
-	
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="\"feedId\"")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "\"feedId\"")
 	private Integer feedId;
-	
-	@Column(columnDefinition="TEXT")
+
+	@Column(columnDefinition = "TEXT")
 	private String picture;
-	
+
 	private String content;
-	
-	@Column(name="\"createdOn\"")
+
+	@Column(name = "\"createdOn\"")
 	private Timestamp createdOn;
-	
+
 	@ManyToOne
-	@JoinColumn(name="\"userId\"")
+	@JoinColumn(name = "\"userId\"")
 	private User user;
-	
+
 	@JsonInclude(Include.NON_NULL)
-	@OneToMany(mappedBy="feed", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<FeedMetaData> feedMetaData;
-	
-	public Feed() { 
+
+	public Feed() {
 	}
 
 	public Integer getFeedId() {
@@ -102,11 +101,5 @@ public class Feed implements Serializable {
 		return "Feed [feedId=" + feedId + ", picture=" + picture + ", content=" + content + ", createdOn=" + createdOn
 				+ "]";
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }

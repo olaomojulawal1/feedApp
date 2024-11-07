@@ -13,100 +13,83 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
-
 @Entity
-@Table(name="\"FeedMetaData\"")
+@Table(name = "\"feedMetaData\"")
 public class FeedMetaData implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="\"feedMetaDataId\"")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "\"feedMetaDataId\"")
 	private Integer feedMetaDataId;
-	
+
 	private String comment;
-	
-	@Column(name="\"createdOn\"")
+
+	@Column(name = "\"createdOn\"")
 	private Timestamp createdOn;
-	
-	@Column(name="\"isLike\"")
+
+	@Column(name = "\"isLike\"")
 	private Boolean isLike;
-	
+
 	@ManyToOne
 	@JsonIgnore
-	@JoinColumn(name="\"feedId\"")
+	@JoinColumn(name = "\"feedId\"")
 	private Feed feed;
-	
+
 	@ManyToOne
-	@JoinColumn(name="\"actionUserId\"")
+	@JoinColumn(name = "\"actionUserId\"")
 	private User user;
-	
-	
+
 	public FeedMetaData() {
 	}
-
 
 	public Integer getFeedMetaDataId() {
 		return feedMetaDataId;
 	}
 
-
 	public void setFeedMetaDataId(Integer feedMetaDataId) {
 		this.feedMetaDataId = feedMetaDataId;
 	}
-
 
 	public String getComment() {
 		return comment;
 	}
 
-
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-
 
 	public Timestamp getCreatedOn() {
 		return createdOn;
 	}
 
-
 	public void setCreatedOn(Timestamp createdOn) {
 		this.createdOn = createdOn;
 	}
-
 
 	public Boolean getIsLike() {
 		return isLike;
 	}
 
-
 	public void setIsLike(Boolean isLike) {
 		this.isLike = isLike;
 	}
-
 
 	public Feed getFeed() {
 		return feed;
 	}
 
-
 	public void setFeed(Feed feed) {
 		this.feed = feed;
 	}
-
 
 	public User getUser() {
 		return user;
 	}
 
-
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
-	
-    
+
 }
